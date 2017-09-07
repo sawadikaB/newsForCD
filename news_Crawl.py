@@ -15,13 +15,13 @@ class Crawl():
         self.session.headers.update(headers)
 
     # 获取页面，private, 内部访问,设置重试5次
-    def __get_content(self, url):
+    def __get_content(self, url, params, pagecode):
         retry = 5
         while retry > 0:
-            res = self.session.get(url)
-            # print(res.content)
+            res = self.session.get(url, params=params)
+            # print(res.headers)
             if res.status_code == 200 or res.status_code == 403 or res.status_code == 404:
-                response = res.content.decode('gbk')
+                response = res.content.decode(pagecode)
                 break
             else:
                 retry -= 1
@@ -29,8 +29,26 @@ class Crawl():
             response = 'no_content'
         return response
 
+    def __post_content(self, url, data):
+        pass
+
+    def __get_likejson(self, url, params):
+        retry = 5
+        while retry > 0:
+            res = self.session.get(url, params=params)
+            if res.status_code == 200 or res.status_code == 403 or res.status_code == 404:
+                response = res.text
+                break
+            else:
+                retry -= 1
+                continue
+            response = 'no_data'
+        return response
+
+
     # 网易的
-    def page_net(self, url):
-        return self.__get_content(url)
+    def page_net(self, url, params=None):
+        return self.__get_likejson(url, params)
+
 
 

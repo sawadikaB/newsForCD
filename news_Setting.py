@@ -6,7 +6,7 @@ URL_TEN = 'http://cd.qq.com/'
 URL_NET = 'http://sc.news.163.com/'
 
 # HEADER
-HEADER_SINA = {'Host': 'sc.news.163.com', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:55.0) Gecko/20100101 Firefox/55.0',
+HEADER_NET = {'Host': 'sc.news.163.com', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:55.0) Gecko/20100101 Firefox/55.0',
 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
 'Accept-Encoding': 'gzip, deflate',
 'Referer': 'http://news.163.com/',
@@ -15,4 +15,9 @@ HEADER_SINA = {'Host': 'sc.news.163.com', 'User-Agent': 'Mozilla/5.0 (Windows NT
 'Upgrade-Insecure-Requests': '1',
 'Cache-Control': 'max-age=0'}
 HEADER_TEN = ''
-HEADER_NET = ''
+HEADER_SINA = ''
+
+# path
+PATH_NET = 'NEWS_NET.txt'
+PATH_TEN = ''
+PATH_SINA = ''

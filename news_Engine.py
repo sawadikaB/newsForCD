@@ -6,6 +6,9 @@ import time
 from newsForCD.news_Setting import URL_NET
 from newsForCD.news_Crawl import Crawl
 from newsForCD.news_Spider import Spider
+import time
+import json
+import re
 
 
 class Engine():
@@ -16,11 +19,26 @@ class Engine():
 
 
     def enginer(self):
-        content = self.crwal.page_net(URL_NET)
-        self.spider.
+        n = 1
+        while n < 10:
+            net_js = 'http://sc.news.163.com/special/04268EVT/xinxiliu.js'
+            if n >= 2:
+                net_js = 'http://sc.news.163.com/special/04268EVT/xinxiliu_0%s.js' % n
+            '''网易新闻的js链接，数据从这返回，目前参数有两个，初步判定一个为固定参数，另一个为类似时间戳'''
+            nowtime = int(time.time()*1000)
+            params = {'callback': 'data_callback', '_': nowtime}
+            pagecode = 'gbk'
+            content = self.crwal.page_net(net_js, params)
+            # print(content)
+            container = self.spider.re_json(content)
+            print(container)
+            break
+            n += 1
+            time.sleep(2)
 
     def run(self):
         self.enginer()
+
 
 if __name__ == '__main__':
     i = Engine()
