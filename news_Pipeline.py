@@ -2,7 +2,6 @@
 # coding:utf-8
 
 import os
-from newsForCD.news_Setting import PATH_NET
 class Pipeline():
 
     def __init__(self):
@@ -18,11 +17,11 @@ class Pipeline():
         :param savepath: 存储路径[string]
         :return:
         '''
-        pass
+        with open(os.path.join(os.path.abspath('DATA'), savepath), 'w') as f:
+            for each in savecontent:
+                f.write(each)
+                f.write('\n')
 
-    def run(self):
-        self.__save_text(PATH_NET)
+    def run(self, saveconetent, savepath):
+        self.__save_text(saveconetent, savepath)
 
-if __name__ == '__main__':
-    i = Pipeline()
-    i.run()

@@ -6,6 +6,8 @@ import time
 from newsForCD.news_Setting import URL_NET
 from newsForCD.news_Crawl import Crawl
 from newsForCD.news_Spider import Spider
+from newsForCD.news_Pipeline import Pipeline
+from newsForCD.news_Setting import PATH_NET
 import time
 import json
 import re
@@ -16,6 +18,8 @@ class Engine():
     def __init__(self):
         self.crwal = Crawl()
         self.spider = Spider()
+        self.pipeline = Pipeline()
+
 
 
     def enginer(self):
@@ -29,10 +33,8 @@ class Engine():
             params = {'callback': 'data_callback', '_': nowtime}
             pagecode = 'gbk'
             content = self.crwal.page_net(net_js, params)
-            # print(content)
             container = self.spider.re_json(content)
-            print(container)
-            break
+            self.pipeline.run(container, PATH_NET)
             n += 1
             time.sleep(2)
 
