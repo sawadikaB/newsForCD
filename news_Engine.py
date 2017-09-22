@@ -33,9 +33,8 @@ class Engine():
             content = self.crwal.page_net(net_js, params)
             container = self.spider.re_json(content)
             self.pipeline.run(container, 'tempNews_NET.txt', 'w')
-            time.sleep(10)
             self.insertData()
-            break
+            time.sleep(600)
 
     # 数据入库
     def insertData(self):
@@ -53,7 +52,7 @@ class Engine():
             if each.split('^')[2] > max(oldlist):
                 newlist.append(each.strip())
             else:
-                print('已入库')
+                pass
         self.pipeline.run(newlist, 'NEWSDataBase_NET.txt', 'a')
         # time.sleep(20)
         self.pipeline.dealfile()
