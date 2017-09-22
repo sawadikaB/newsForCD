@@ -13,18 +13,24 @@ class Pipeline():
         if not os.path.exists(os.path.abspath('DATA')):
             os.mkdir(os.path.abspath('DATA'))
 
-    def __save_text(self, savecontent, savepath):
+    def __save_text(self, savecontent, savepath, type):
         '''
         :param savecontent: 存储内容[list]
         :param savepath: 存储路径[string]
+        :param type:写入方式
         :return:
         '''
-        with open(os.path.join(os.path.abspath('DATA'), savepath), 'a') as f:
+        with open(os.path.join(os.path.abspath('DATA'), savepath), type, encoding='utf-8') as f:
             for each in savecontent:
+                print(each)
                 f.write(each)
                 f.write('\n')
 
-    def run(self, saveconetent, savepath):
+    # 读文本文件内容
+    def read_text(self, path):
+        return [each for each in open(os.path.join(os.path.abspath('DATA'), path), 'r', encoding='utf-8')]
+
+    def run(self, saveconetent, savepath, type='a'):
         '''测试时使用的'''
-        self.__save_text(saveconetent, savepath)
+        self.__save_text(saveconetent, savepath, type)
 
