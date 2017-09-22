@@ -32,8 +32,10 @@ class Engine():
             params = {'callback': 'data_callback', '_': nowtime}
             content = self.crwal.page_net(net_js, params)
             container = self.spider.re_json(content)
-            self.pipeline.run(container, 'News_NET.txt')
-            time.sleep(3600)
+            self.pipeline.run(container, 'tempNews_NET.txt', 'w')
+            time.sleep(10)
+            self.insertData()
+            break
 
     # 数据入库
     def insertData(self):
@@ -48,12 +50,13 @@ class Engine():
             oldlist.append(each.split('^')[2])
 
         for each in new:
-            if each.split('^')[2] > min(oldlist):
+            if each.split('^')[2] > max(oldlist):
                 newlist.append(each.strip())
             else:
                 print('已入库')
-        self.pipeline.run(newlist, 'test.txt', 'a')
-        # self.pipeline.dealfile(delfile, crefile) 处理新旧文件
+        self.pipeline.run(newlist, 'NEWSDataBase_NET.txt', 'a')
+        # time.sleep(20)
+        self.pipeline.dealfile()
 
 
 
@@ -76,7 +79,7 @@ class Engine():
             time.sleep(2)
 
     def run(self):
-        self.insertData()
+        self.enginer()
 
 
 if __name__ == '__main__':

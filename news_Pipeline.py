@@ -3,6 +3,7 @@
 
 import os
 from news_Tool import Tool4News
+import time
 class Pipeline():
 
     def __init__(self):
@@ -29,6 +30,13 @@ class Pipeline():
     # 读文本文件内容
     def read_text(self, path):
         return [each for each in open(os.path.join(os.path.abspath('DATA'), path), 'r', encoding='utf-8')]
+
+    # 处理两个文件
+    def dealfile(self):
+        os.remove(os.path.join(os.path.abspath('DATA'), 'NEWS_NET.txt'))
+        time.sleep(10)
+        os.rename(os.path.join(os.path.abspath('DATA'), 'tempNews_NET.txt'), os.path.join(os.path.abspath('DATA'), 'NEWS_NET.txt'))
+        pass
 
     def run(self, saveconetent, savepath, type='a'):
         '''测试时使用的'''
