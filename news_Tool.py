@@ -11,7 +11,8 @@ class Tool4News():
 	def time_timestamp(self, nt):
 		'''
 		:param time: 时间参数
-		:return: timestamp 返回一个时间戳
+		:return: timestamp 返回一个
+		时间戳
 		'''
 		pattern = [
 			'%Y-%m-%d %H:%M:%S',

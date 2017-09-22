@@ -18,6 +18,6 @@ HEADER_TEN = ''
 HEADER_SINA = ''
 
 # path
-PATH_NET = 'NEWS_NET.txt'
+PATH_NET = 'NEWSDataBase_NET.txt'
 PATH_TEN = ''
 PATH_SINA = ''
