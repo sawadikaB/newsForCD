@@ -50,6 +50,7 @@ class Engine():
 
         for each in new:
             if each.split('^')[2] > max(oldlist):
+                print('【新增新闻】 %s' % (each, ))
                 newlist.append(each.strip())
             else:
                 pass
