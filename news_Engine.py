@@ -3,11 +3,11 @@
 __version__ = '1.0'
 
 import time
-from newsForCD.news_Setting import URL_NET
-from newsForCD.news_Crawl import Crawl
-from newsForCD.news_Spider import Spider
-from newsForCD.news_Pipeline import Pipeline
-from newsForCD.news_Setting import PATH_NET
+from news_Setting import URL_NET
+from news_Crawl import Crawl
+from news_Spider import Spider
+from news_Pipeline import Pipeline
+from news_Setting import PATH_NET
 import time
 import json
 import re
@@ -53,7 +53,7 @@ class Engine():
             time.sleep(2)
 
     def run(self):
-        self.enginer()
+        self.stopuse_enginer()
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@
 # coding:utf-8
 
 import os
-from newsForCD.news_Tool import Tool4News
+from news_Tool import Tool4News
 class Pipeline():
 
     def __init__(self):

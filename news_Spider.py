@@ -6,7 +6,7 @@ __version__ = 'v1.0'
 import re
 from lxml import etree
 import json
-from newsForCD.news_Tool import Tool4News
+from news_Tool import Tool4News
 
 class Spider():
 

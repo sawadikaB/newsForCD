@@ -5,7 +5,7 @@ __version__ = 'v1.0' # 先写个网易的测试一下
 
 import time
 import requests
-from newsForCD.news_Setting import HEADER_NET
+from news_Setting import HEADER_NET
 
 class Crawl():
 
